@@ -1,0 +1,14 @@
+table, th, td {
+    border: 1px solid black;
+    table-layout: fixed;
+    width: 100%;
+    aspect-ratio: auto;
+    border-collapse: collapse;
+}
+th, td {
+    background-color: paleturquoise;
+}
+
+h1 {
+    font-family: Helvetica;
+}

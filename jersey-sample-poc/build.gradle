@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.mh'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = '5.8.2'
+}
+
+sourceCompatibility = "10"
+targetCompatibility = "10"
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+    implementation('org.glassfish.jersey.containers:jersey-container-servlet:2.14')
+    implementation group: 'javax.activation', name: 'activation', version: '1.1'
+    implementation group: 'org.json', name: 'json', version: '20220320'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.3'
+    implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
+    implementation group: 'net.sourceforge.stripes', name: 'stripes', version: '1.6.0'
+
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+}
+
+test {
+    useJUnitPlatform()
+}
